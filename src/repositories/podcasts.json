@@ -16,6 +16,12 @@
       "episode": "Guilherme",
       "videoId": "00000000",
       "categoria": ["tecnologia, esporte","cultura"]
+    },
+    {
+      "podcastName": "bbj",
+      "episode": "Russo",
+      "videoId": "00000000",
+      "categoria": ["esporte"]
     }
   ]
 
