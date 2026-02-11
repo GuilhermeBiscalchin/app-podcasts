@@ -16,10 +16,10 @@ export const getFiltEpisodes = async (
   request: IncomingMessage,
   response: ServerResponse,
 ) => {
+  //localhost:1111/api/episodes?p=flow
+  const queryString = request.url?.split("?p=")[1] || "";
 
-const content = await serviceFilterEpisodes("flow")
-response.writeHead(200,{ "Content-Type": "application/json" })
-response.end(JSON.stringify(content))
-
-
+  const content = await serviceFilterEpisodes(queryString);
+  response.writeHead(200, { "Content-Type": "application/json" });
+  response.end(JSON.stringify(content));
 };

@@ -7,13 +7,23 @@ import {
 
 const server = http.createServer(
   async (request: http.IncomingMessage, response: http.ServerResponse) => {
+    //queryString ?v=valor
+    //localhost:1111/api/episodes?p=flow
+
+    const [baseUrl, queryString] = request.url?.split("?") ?? ["", ""];
+     
+    
+    //console.log(baseUrl)
+    //console.log(queryString)
+
+    
     //listar podcasts
-    if (request.method === "GET" && request.url === "/api/list") {
+    if (request.method === "GET" && baseUrl === "/api/list") {
       await getLisEpisodes(request, response);
     }
 
     //filtrar podcast
-    if (request.method === "GET" && request.url === "/api/episodes") {
+    if (request.method === "GET" && baseUrl === "/api/episodes") {
       await getFiltEpisodes(request, response);
     }
   },
