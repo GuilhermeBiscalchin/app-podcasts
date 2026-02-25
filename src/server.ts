@@ -4,6 +4,7 @@ import {
   getFiltEpisodes,
   getLisEpisodes,
 } from "./controllers/podcasts-controller";
+import { Routes } from "./routes/route";
 
 const server = http.createServer(
   async (request: http.IncomingMessage, response: http.ServerResponse) => {
@@ -18,12 +19,12 @@ const server = http.createServer(
 
     
     //listar podcasts
-    if (request.method === "GET" && baseUrl === "/api/list") {
+    if (request.method === "GET" && baseUrl === Routes.LIST) {
       await getLisEpisodes(request, response);
     }
 
     //filtrar podcast
-    if (request.method === "GET" && baseUrl === "/api/episodes") {
+    if (request.method === "GET" && baseUrl === Routes.EPISODES) {
       await getFiltEpisodes(request, response);
     }
   },
